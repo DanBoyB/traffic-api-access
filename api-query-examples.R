@@ -47,6 +47,10 @@ daily_traffic_df <- map_dfr(daily_traffic$rows, as_tibble) %>%
 
 # Get daily classified data and convert to dataframe ----------------------
 
+daily_classified_url <- paste0("https://api.data.tii.ie/traffic/v1/aggregations/", 
+                               date_req, 
+                               "/dailytotalsbysitevehicleclass")
+
 daily_classified <- content(
     GET(daily_classified_url,
         add_headers(Authorization = paste("Bearer", token))
